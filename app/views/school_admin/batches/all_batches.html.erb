@@ -1,0 +1,36 @@
+<h2 class="mb-3">All Batches</h2>
+
+<%= link_to "New Batch",
+            new_school_admin_batch_path,
+            class: "btn btn-primary" %>
+
+<br /><br />
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Batch</th>
+    <th>Course</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @batches.each do |batch| %>
+    <tr>
+      <td><%= batch.name %></td>
+      <td><%= batch.course.name %></td>
+
+      <td class="d-flex gap-2">
+        <%= link_to "View Students",
+                    students_school_admin_batch_path(batch),
+                    class: "btn btn-sm btn-primary" %>
+
+        <%= link_to "Add Students",
+                    assign_students_school_admin_batch_path(batch),
+                    class: "btn btn-sm btn-outline-primary" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

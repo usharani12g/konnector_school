@@ -1,0 +1,37 @@
+<h1 class="mb-3">Courses</h1>
+
+<%= link_to "New Course",
+            new_school_admin_course_path,
+            class: "btn btn-primary mb-3" %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @courses.each do |course| %>
+    <tr>
+      <td><%= course.name %></td>
+      <td class="d-flex gap-2">
+        <%= link_to "Edit",
+                    edit_school_admin_course_path(course),
+                    class: "btn btn-sm btn-warning" %>
+
+        <%= link_to "Batches",
+                    school_admin_course_batches_path(course),
+                    class: "btn btn-sm btn-info text-white" %>
+
+        <%= button_to "Delete",
+                      school_admin_course_path(course),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" },
+                      class: "btn btn-sm btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

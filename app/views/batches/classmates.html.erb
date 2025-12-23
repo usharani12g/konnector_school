@@ -1,0 +1,23 @@
+<h1 class="mb-3">
+  Classmates – <span class="text-primary"><%= @batch.name %></span>
+</h1>
+
+<% if @classmates.any? %>
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Email</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @classmates.each do |student| %>
+      <tr>
+        <td><%= student.email %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="text-muted">No classmates yet.</p>
+<% end %>

@@ -1,0 +1,13 @@
+<h1><%= @batch.name %></h1>
+
+<h3>Add Student</h3>
+
+<%= form_with url: add_student_school_admin_batch_path(@batch), method: :post do %>
+  <%= select_tag :student_id,
+                 options_from_collection_for_select(
+                   current_user.school.users.student, :id, :email
+                 ),
+                 prompt: "Select student" %>
+
+  <%= submit_tag "Add Student" %>
+<% end %>

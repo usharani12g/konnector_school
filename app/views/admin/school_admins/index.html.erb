@@ -1,0 +1,29 @@
+<h2>School Admins – <%= @school.name %></h2>
+
+<%= link_to "Add School Admin",
+            new_admin_school_school_admin_path(@school),
+            class: "btn btn-primary" %>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @school_admins.each do |admin| %>
+    <tr>
+      <td><%= admin.email %></td>
+      <td>
+        <%= button_to "Remove",
+                      admin_school_school_admin_path(@school, admin),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" },
+                      class: "btn btn-sm btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

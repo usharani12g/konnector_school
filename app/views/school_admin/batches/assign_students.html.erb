@@ -1,0 +1,30 @@
+<h2 class="mb-3">
+  Assign Students – <%= @batch.name %>
+</h2>
+
+<%= form_with url: save_students_school_admin_batch_path(@batch),
+              method: :post do %>
+
+  <div class="mb-3">
+    <% @students.each do |student| %>
+      <div class="form-check">
+        <%= check_box_tag "student_ids[]",
+                          student.id,
+                          false,
+                          class: "form-check-input",
+                          id: "student_#{student.id}" %>
+
+        <%= label_tag "student_#{student.id}",
+                      student.email,
+                      class: "form-check-label" %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= submit_tag "Save",
+                 class: "btn btn-success" %>
+
+  <%= link_to "Back",
+              school_admin_batches_path,
+              class: "btn btn-secondary ms-2" %>
+<% end %>

@@ -1,0 +1,66 @@
+<h1 class="mb-4">My Enrollments</h1>
+
+<h3 class="mb-3">Available Batches</h3>
+
+<table class="table table-bordered table-striped mb-4">
+  <thead>
+  <tr>
+    <th>Course</th>
+    <th>Batch</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @batches.each do |batch| %>
+    <tr>
+      <td><%= batch.course.name %></td>
+      <td><%= batch.name %></td>
+      <td>
+        <%= button_to "Request Enrollment",
+                      enrollments_path(batch_id: batch.id),
+                      method: :post,
+                      class: "btn btn-sm btn-primary" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<hr>
+
+<h3 class="mb-3">Enrollment Requests</h3>
+
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Course</th>
+    <th>Batch</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @enrollments.each do |enrollment| %>
+    <tr>
+      <td><%= enrollment.batch.course.name %></td>
+      <td><%= enrollment.batch.name %></td>
+      <td>
+        <span class="badge
+          <%= enrollment.approved? ? 'bg-success' :
+                                       enrollment.rejected? ? 'bg-danger' : 'bg-warning text-dark' %>">
+          <%= enrollment.status.capitalize %>
+        </span>
+
+        <% if enrollment.approved? %>
+          <span class="mt-1">
+            <%= link_to "View Classmates",
+                        classmates_batch_path(enrollment.batch),
+                        class: "btn btn-sm btn-outline-primary" %>
+          </span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

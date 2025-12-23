@@ -1,0 +1,8 @@
+<%= form_with model: [:school_admin, course] do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

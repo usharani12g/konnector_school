@@ -58,7 +58,8 @@ It supports **Admins**, **School Admins**, and **Students**, with both **UI-base
 
 ### 1. Clone the repository
 
-git clone <your-repo-url>
+git clone https://github.com/usharani12g/konnector_school.git
+
 cd konnector_school
 
 ### 2. Install dependencies

@@ -1,0 +1,26 @@
+<h2 class="mb-3">
+  Students in <span class="text-primary"><%= @batch.name %></span>
+</h2>
+
+<% if @students.any? %>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.email %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p class="text-muted">No students assigned to this batch.</p>
+<% end %>
+
+<%= link_to "Back to Batches",
+            school_admin_batches_path,
+            class: "btn btn-secondary mt-3" %>

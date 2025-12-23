@@ -1,0 +1,2 @@
+module SchoolAdmin::EnrollmentsHelper
+end

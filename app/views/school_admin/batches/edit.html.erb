@@ -1,0 +1,10 @@
+<h1><%= action_name.capitalize %> Batch</h1>
+
+<%= form_with model: [:school_admin, @course, @batch] do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database: konnector_school
+
+test:
+  <<: *default
+  database: konnector_school_test
+
+production:
+  <<: *default
+  database: konnector_school_production
+  username: konnector_school
+  password: <%= ENV["KONNECTOR_SCHOOL_DATABASE_PASSWORD"] %>

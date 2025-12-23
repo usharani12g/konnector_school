@@ -1,0 +1,25 @@
+<h2 class="mb-3">Batches</h2>
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Batch</th>
+    <th>Course</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @batches.each do |batch| %>
+    <tr>
+      <td><%= batch.name %></td>
+      <td><%= batch.course.name %></td>
+      <td>
+        <%= link_to "Add Students",
+                    assign_students_school_admin_batch_path(batch),
+                    class: "btn btn-sm btn-primary" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,33 @@
+<h1 class="mb-4">Pending Enrollment Requests</h1>
+
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Student</th>
+    <th>Course</th>
+    <th>Batch</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @enrollments.each do |enrollment| %>
+    <tr>
+      <td><%= enrollment.user.email %></td>
+      <td><%= enrollment.batch.course.name %></td>
+      <td><%= enrollment.batch.name %></td>
+      <td class="d-flex gap-2">
+        <%= button_to "Approve",
+                      approve_school_admin_enrollment_path(enrollment),
+                      method: :patch,
+                      class: "btn btn-sm btn-success" %>
+
+        <%= button_to "Reject",
+                      reject_school_admin_enrollment_path(enrollment),
+                      method: :patch,
+                      class: "btn btn-sm btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

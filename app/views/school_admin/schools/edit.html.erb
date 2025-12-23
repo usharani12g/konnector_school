@@ -1,0 +1,15 @@
+<h1>Edit School</h1>
+
+<%= form_with model: @school, url: school_admin_school_path, method: :patch do |f| %>
+  <div>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+
+  <%= f.submit "Update School" %>
+<% end %>

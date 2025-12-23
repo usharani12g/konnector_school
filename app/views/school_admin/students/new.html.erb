@@ -1,0 +1,13 @@
+<h1 class="mb-3">Add Student</h1>
+
+<%= form_with model: @student,
+              url: school_admin_students_path,
+              local: true do |f| %>
+
+  <div class="mb-3">
+    <%= f.label :email, class: "form-label" %>
+    <%= f.email_field :email, class: "form-control", required: true %>
+  </div>
+
+  <%= f.submit "Create Student", class: "btn btn-success" %>
+<% end %>

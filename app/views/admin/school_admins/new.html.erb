@@ -1,0 +1,13 @@
+<h2>Add School Admin – <%= @school.name %></h2>
+
+<%= form_with model: @school_admin,
+              url: admin_school_school_admins_path(@school),
+              local: true do |f| %>
+
+  <div class="mb-3">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control", required: true %>
+  </div>
+
+  <%= f.submit "Create School Admin", class: "btn btn-primary" %>
+<% end %>
