@@ -6,7 +6,7 @@ gem "rails", "~> 7.1.3"
 gem "pg"
 gem "puma"
 gem "bootsnap", require: false
-gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.21"
 
 # Authentication
 gem "devise"
